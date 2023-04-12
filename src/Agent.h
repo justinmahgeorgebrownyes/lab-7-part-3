@@ -36,7 +36,7 @@ public:
 	[[nodiscard]] glm::vec4 GetLineColour(int index) const;
 	[[nodiscard]] float GetWhiskerAngle() const;
 
-	
+
 	// setters
 	void SetTargetPosition(glm::vec2 new_position);
 	void SetCurrentDirection(glm::vec2 new_direction);
@@ -55,6 +55,12 @@ public:
 	void SetLineColour(int index, glm::vec4 colour);
 	void SetWhiskerAngle(float angle);
 
+
+	//7.3
+	int GetHealth() const;
+	void SetHealth(int value);
+	void TakeDamage(int value);
+
 	// utility function
 	void UpdateWhiskers(float angle);
 
@@ -63,17 +69,20 @@ public:
 	void SetActionState(ActionState state);
 
 	//7.2
-	
+
 	//utility function
 	bool checkAgentLOSTOTarget(DisplayObject* target_object, const std::vector<Obstacle*>& obstacles);
 	//virtual fucitions
-	virtual void Attack(){}
-	virtual void MoveToLOS(){}
-	virtual void MoveToPlayer(){}
-	virtual void MoveToRange(){}
-	virtual void Patrol(){}
+	virtual void Attack() {}
+	virtual void MoveToLOS() {}
+	virtual void MoveToPlayer() {}
+	virtual void MoveToRange() {}
+	virtual void Patrol() {}
 
-
+	//7.3
+	virtual void Flee(){}
+	virtual void MoveToCover(){}
+	virtual void WaitBehindCover(){}
 
 private:
 	void ChangeDirection();
@@ -98,6 +107,10 @@ private:
 
 	// New for Lab 7.1
 	ActionState m_actionState;
+
+	//7.3
+	int m_health = 100;
+
 
 };
 

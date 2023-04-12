@@ -178,6 +178,21 @@ void Agent::SetWhiskerAngle(const float angle)
 	m_whiskerAngle = angle;
 }
 
+int Agent::GetHealth() const
+{
+	return m_health;
+}
+
+void Agent::SetHealth(int value)
+{
+	m_health = value;
+}
+
+void Agent::TakeDamage(int value)
+{
+	m_health -= value;
+}
+
 void Agent::UpdateWhiskers(const float angle)
 {
 	m_whiskerAngle = angle;
