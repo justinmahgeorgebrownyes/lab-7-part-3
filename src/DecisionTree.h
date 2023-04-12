@@ -10,6 +10,9 @@
 #include "TreeNodeType.h"
 
 #include "RangedCombatCondition.h"
+#include "EnemyHealthCondition.h"
+#include "EnemyHitCondition.h"
+#include "PlayerDetectedCondition.h"
 
 #include <vector>
 

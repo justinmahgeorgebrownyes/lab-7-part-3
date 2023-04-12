@@ -1,20 +1,20 @@
-#include "CloseCombatCondition.h"
+#include "PlayerDetectedCondition.h"
 
-CloseCombatCondition::CloseCombatCondition(const bool within_combat_range)
+PlayerDetectedCondition::PlayerDetectedCondition(Agent* agent, const bool detected) : ConditionNode(agent)
 {
-	m_name = "Close Combat Condition";
-	SetIsWithinCombatRange(within_combat_range);
+	m_name = "Player Detected Condition";
+	SetDetected(detected);
 }
 
-CloseCombatCondition::~CloseCombatCondition()
+PlayerDetectedCondition::~PlayerDetectedCondition()
 = default;
 
-void CloseCombatCondition::SetIsWithinCombatRange(const bool state)
+void PlayerDetectedCondition::SetDetected(const bool state)
 {
-	m_isWithinCombatRange = state;
+	m_isDetected = state;
 }
 
-bool CloseCombatCondition::Condition()
+bool PlayerDetectedCondition::Condition()
 {
-	return m_isWithinCombatRange;
+	return m_isDetected;
 }
