@@ -8,6 +8,7 @@
 #include "MoveToLOSAction.h"
 #include "MoveToPlayerAction.h"
 #include "AttackAction.h"
+#include "FleeAction.h"
 
 CloseCombatEnemy::CloseCombatEnemy() : m_maxSpeed(20.0f),
 m_turnRate(5.0f), m_accelerationRate(2.0f), m_startPosition(glm::vec2(300.0f, 500.0f))
@@ -239,6 +240,7 @@ void CloseCombatEnemy::m_buildPatrolPath()
 
 void CloseCombatEnemy::m_buildTree()
 {
+
 
 
 	// Conditions
