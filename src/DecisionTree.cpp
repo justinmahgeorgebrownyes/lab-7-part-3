@@ -78,6 +78,36 @@ void DecisionTree::SetRangedCombatNode(RangedCombatCondition* node)
 	m_RangedCombatNode = node;
 }
 
+EnemyHealthCondition* DecisionTree::GetEnemyHealthNode() const
+{
+	return nullptr;
+}
+
+EnemyHitCondition* DecisionTree::GetEnemyHitNode() const
+{
+	return nullptr;
+}
+
+PlayerDetectedCondition* DecisionTree::GetPlayerDetectedNode() const
+{
+	return nullptr;
+}
+
+void DecisionTree::SetEnemyHealthNode(EnemyHealthCondition* node)
+{
+	m_EnemyHealthNode = node;
+}
+
+void DecisionTree::SetEnemyHitNode(EnemyHitCondition* node)
+{
+	m_EnemyHitNode = node;
+}
+
+void DecisionTree::SetPlayerDetectedNode(PlayerDetectedCondition* node)
+{
+	m_PlayerDetectedNode = node;
+}
+
 TreeNode* DecisionTree::AddNode(TreeNode* parent, TreeNode* child_node, const TreeNodeType type)
 {
 	switch(type)
