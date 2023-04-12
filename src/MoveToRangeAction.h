@@ -7,7 +7,7 @@
 class MoveToRangeAction : public ActionNode
 {
 public:
-	MoveToRangeAction(Agent* agent = nullptr);
+	MoveToRangeAction(Agent* agent );
 	virtual ~MoveToRangeAction();
 
 	virtual void Action() override; // Define our action here

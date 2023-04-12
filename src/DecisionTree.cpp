@@ -108,19 +108,26 @@ void DecisionTree::SetPlayerDetectedNode(PlayerDetectedCondition* node)
 	m_PlayerDetectedNode = node;
 }
 
-TreeNode* DecisionTree::AddNode(TreeNode* parent, TreeNode* child_node, const TreeNodeType type)
+TreeNode* DecisionTree::AddNode(TreeNode* parent, TreeNode* child_node, TreeNodeType type)
 {
+	if(this != nullptr)
 	switch(type)
 	{
 	case TreeNodeType::LEFT_TREE_NODE:
-		parent->m_pLeft = child_node;
+		if (parent != nullptr) {
+			parent->m_pLeft = child_node;
+		}
 		break;
 	case TreeNodeType::RIGHT_TREE_NODE:
+		if (parent != nullptr)
 		parent->m_pRight = child_node;
 		break;
 	}
-	child_node->m_pParent = parent;
-	return child_node;
+	if (child_node != nullptr) {
+		child_node->m_pParent = parent;
+		return child_node;
+	}
+	
 }
 
 void DecisionTree::Display() const

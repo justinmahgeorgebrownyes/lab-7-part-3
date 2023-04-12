@@ -7,7 +7,7 @@
 class MoveToPlayerAction : public ActionNode
 {
 public:
-	MoveToPlayerAction(Agent* agent = nullptr);
+	MoveToPlayerAction(Agent* agent );
 	virtual ~MoveToPlayerAction();
 
 	virtual void Action() override; // Define our action here

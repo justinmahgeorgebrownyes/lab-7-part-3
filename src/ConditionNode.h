@@ -7,7 +7,7 @@
 class ConditionNode : public TreeNode
 {
 public:
-	ConditionNode(Agent* agent = nullptr) : TreeNode(agent) { m_isLeaf = false; }
+	ConditionNode(Agent* agent) : TreeNode(agent) { m_isLeaf = false; }
 	virtual ~ConditionNode() = default;
 
 	virtual bool Condition() = 0; // Condition Specialization

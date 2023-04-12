@@ -45,8 +45,8 @@ private:
 	Background* m_pBackground;
 
 	//7.2
-	CloseCombatEnemy* m_pStarShip;
-	//RangedCombatEnemy* m_pStarShip;
+	//CloseCombatEnemy* m_pStarShip;
+	RangedCombatEnemy* m_pStarShip;
 
 
 	void BuildObstaclePool();

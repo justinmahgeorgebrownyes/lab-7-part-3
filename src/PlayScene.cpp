@@ -29,6 +29,9 @@ void PlayScene::Draw()
 			Util::DrawRect(obstacle->GetTransform()->position - glm::vec2(obstacle->GetWidth() * 0.5f,
 				obstacle->GetHeight() * 0.5f), obstacle->GetWidth(), obstacle->GetHeight());
 		}
+		//7.3
+		//const auto detected = m_pStarShip->GetTree()->GetPlayerDetectedNode()->GetDetected();
+		//Util::DrawCircle(m_pStarShip->GetTransform()->position, 300.0f, detected ? glm::vec4(0, 1, 0, 1) : glm::vec4(1, 0, 0, 1));
 	}
 
 	SDL_SetRenderDrawColor(Renderer::Instance().GetRenderer(), 255, 255, 255, 255);
@@ -38,7 +41,23 @@ void PlayScene::Update()
 {
 	UpdateDisplayList();
 	//m_checkAgentLOS(m_pStarShip, m_pTarget);
-	m_pStarShip->GetTree()->GetLOSNode()->SetLOS(m_pStarShip->checkAgentLOSTOTarget(m_pTarget, m_pObstacles));
+	//m_pStarShip->GetTree()->GetLOSNode()->SetLOS(m_pStarShip->checkAgentLOSTOTarget(m_pTarget, m_pObstacles));
+
+	//setup rang combat
+	m_pStarShip->GetTree()->GetEnemyHealthNode()->SetHealth(m_pStarShip->GetHealth() > 25);
+	m_pStarShip->GetTree()->GetEnemyHitNode()->SetIsHit(false);
+	m_pStarShip->checkAgentLOSTOTarget(m_pTarget, m_pObstacles);
+
+	//distance check
+	float distance = Util::Distance(m_pStarShip->GetTransform()->position, m_pTarget->GetTransform()->position);
+
+	//radius detection
+	m_pStarShip->GetTree()->GetPlayerDetectedNode()->SetDetected(distance < 300);
+
+
+	//within los distance
+	m_pStarShip->GetTree()->GetRangedCombatNode()->SetIsWithinCombatRange(distance >= 200 && distance <= 350);
+
 	switch(m_LOSMode)
 	{
 	case LOSMode::TARGET:
@@ -99,8 +118,8 @@ void PlayScene::Start()
 	m_pTarget->GetTransform()->position = glm::vec2(500.0f, 300.0f);
 	AddChild(m_pTarget, 2);
 
-	m_pStarShip = new CloseCombatEnemy();
-	//m_pStarShip = new RangedCombatEnemy();
+	//m_pStarShip = new CloseCombatEnemy();
+	m_pStarShip = new RangedCombatEnemy();
 	m_pStarShip->GetTransform()->position = glm::vec2(400.0f, 40.0f);
 	AddChild(m_pStarShip, 2);
 

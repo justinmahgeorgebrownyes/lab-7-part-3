@@ -7,7 +7,7 @@
 class FleeAction : public ActionNode
 {
 public:
-	FleeAction(Agent* agent = nullptr);
+	FleeAction(Agent* agent);
 	virtual ~FleeAction();
 
 	virtual void Action() override; // Define our action here

@@ -11,6 +11,7 @@ PlayerDetectedCondition::~PlayerDetectedCondition()
 
 void PlayerDetectedCondition::SetDetected(const bool state)
 {
+	if(this != nullptr)
 	m_isDetected = state;
 }
 

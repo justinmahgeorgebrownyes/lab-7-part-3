@@ -9,8 +9,9 @@ EnemyHealthCondition::EnemyHealthCondition(Agent* agent, const bool healthy) : C
 EnemyHealthCondition::~EnemyHealthCondition()
 = default;
 
-void EnemyHealthCondition::SetHealth(const bool state)
+void EnemyHealthCondition::SetHealth( bool state)
 {
+	if (this != nullptr)
 	m_isHealthy = state;
 }
 

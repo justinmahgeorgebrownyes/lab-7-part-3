@@ -11,6 +11,7 @@ EnemyHitCondition::~EnemyHitCondition()
 
 void EnemyHitCondition::SetIsHit(const bool state)
 {
+	if(this != nullptr)
 	m_isHit = state;
 }
 

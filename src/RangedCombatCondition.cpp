@@ -11,6 +11,7 @@ RangedCombatCondition::~RangedCombatCondition()
 
 void RangedCombatCondition::SetIsWithinCombatRange(const bool state)
 {
+	if(this != nullptr)
 	m_isWithinCombatRange = state;
 }
 
