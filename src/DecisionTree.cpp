@@ -80,17 +80,17 @@ void DecisionTree::SetRangedCombatNode(RangedCombatCondition* node)
 
 EnemyHealthCondition* DecisionTree::GetEnemyHealthNode() const
 {
-	return nullptr;
+	return m_EnemyHealthNode;
 }
 
 EnemyHitCondition* DecisionTree::GetEnemyHitNode() const
 {
-	return nullptr;
+	return m_EnemyHitNode;
 }
 
 PlayerDetectedCondition* DecisionTree::GetPlayerDetectedNode() const
 {
-	return nullptr;
+	return m_PlayerDetectedNode;
 }
 
 void DecisionTree::SetEnemyHealthNode(EnemyHealthCondition* node)
@@ -134,8 +134,10 @@ void DecisionTree::Display() const
 {
 	std::cout << "Decision Tree Nodes: " << std::endl;
 	std::cout << "-----------------------------------" << std::endl;
+
 	for (const auto node : m_treeNodeList)
 	{
+		//if(node != nullptr)
 		std::cout << node->m_name << std::endl;
 	}
 	std::cout << "-----------------------------------" << std::endl;
